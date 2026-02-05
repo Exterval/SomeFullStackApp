@@ -5,8 +5,6 @@ import HomePage from './pages/HomePage'
 import SecondPage from './pages/SecondPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div>
       <Routes>

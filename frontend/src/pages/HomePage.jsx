@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { useEffect } from 'react'
 import axios from 'axios'
+import NavBar from '../components/NavBar'
 
 const HomePage = () => {
     useEffect(()=>{
@@ -18,9 +19,9 @@ const HomePage = () => {
         getHome()
     },[])
   return (
-    <div>
-      <p>Hello</p>
-      <Link to={'/second'} className='bg-amber-400'>Click me pls</Link>
+    <div className='min-h-screen bg-slate-400'>
+      <NavBar />
+      {/* <Link to={'/second'} className='bg-amber-400'>Click me pls</Link> */}
     </div>
   )
 }

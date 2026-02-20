@@ -8,6 +8,7 @@ const port = process.env.PORT;
 const home = require('./routes/appRouter')
 // static
 app.use(express.static('../frontend'))
+app.use(express.json())
 
 app.use('/app', home)
 

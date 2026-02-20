@@ -1,14 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.route('/').get((req, res)=>{
-    console.log('Page 1')
-    res.status(200).send('Hello i am sent.')
-})
+const {getData, postData} = require('../controllers/controls');
 
-router.route('/second').get((req, res)=>{
-    console.log('Page 2')
-    res.status(200).send('Hello i am sent too!')
-})
+router.route('/').get(getData)
+router.route('/add').post(postData)
 
 module.exports = router;

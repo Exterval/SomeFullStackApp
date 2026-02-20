@@ -1,27 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import { useEffect } from 'react'
 import axios from 'axios'
 
 const SecondPage = () => {
 
+  const [data , setData] = useState('');
+
   useEffect(()=>{
-        async function getHome(){
+        async function postHome(){
             try{
-                const resp = await axios.get('/app/second')
+                const resp = await axios.post('/app/add')
                 console.log(resp.status)
-                if(!resp.status == 200) throw new Error(`${resp.status}`)
-                console.log(resp.data)
+                
+                if(resp.status !== 200) throw new Error(`${resp.status}`)
+
+                console.log(resp.data.message)
+                setData(resp.data.message);
             }catch(err){
                 console.log(err)
             }
         }
-        getHome()
+        postHome()
     },[])
   
   return (
     <div>
-      <p>Hi</p>
+      <p id='test'>{data || 'Hi'}</p>
       <Link to={'/'} className='bg-gray-600'>Go back pls</Link>
     </div>
   )

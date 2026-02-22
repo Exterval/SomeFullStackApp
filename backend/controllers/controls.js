@@ -1,7 +1,13 @@
+let {products} = require('../data');
+
 const getData = (req, res) =>{
-    console.log('Page 1')
-    console.log('Sending...')
-    res.status(200).send({'message': 'Success', 'data': 'Data is displayed here'})
+    try{
+        console.log('Page 1')
+        console.log('Sending...')
+        res.status(200).send({message: 'Success', data: products})
+    }catch(err){
+        console.error(err)
+    }
 }
 
 const postData = (req, res) =>{

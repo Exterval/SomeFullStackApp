@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar'
 
 const HomePage = () => {
 
-    const [data, setData] = useState('');
+    const [data, setData] = useState([]);
 
     useEffect(()=>{
         async function getHome(){
@@ -14,8 +14,9 @@ const HomePage = () => {
                 const resp = await axios.get('/app')
                 console.log(resp.status)
                 if(!resp.status == 200) throw new Error(`${resp.status}`)
-                console.log(resp.data)
-                setData(resp.data.data)
+                const {data} = resp.data;
+                console.log(data);
+                setData(d => [d,...data]);
             }catch(err){
                 console.log(err)
             }
@@ -25,7 +26,7 @@ const HomePage = () => {
   return (
     <div className='min-h-screen bg-slate-400'>
       <NavBar />
-      <div className=''>{data || 'Loading...'}</div>
+      <div className='container'>{data.map(elem=><li key={elem.id}>{elem.name}</li>) || 'Loading...'}</div>
     </div>
   )
 }

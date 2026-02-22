@@ -4,6 +4,7 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import SecondPage from './pages/SecondPage'
 
+// PRODUCT IMAGE UPLOADER (CRUD)
 function App() {
   return (
     <div>

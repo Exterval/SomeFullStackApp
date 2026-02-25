@@ -4,7 +4,7 @@ const Card = (props) => {
 
 const data = props.data || {};
 
-    function properCase(text){
+    function properCase(text){ /** CREDITS TO FCC */
         return text.toLowerCase().split(' ').map(
             function(txt){
                 return txt.replace(txt[0], txt[0].toUpperCase())

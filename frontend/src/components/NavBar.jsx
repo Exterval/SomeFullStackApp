@@ -22,9 +22,9 @@ const NavBar = () => {
                   <ul>
                     <h3 className='font-semibold text-xl'>Menu</h3>
                     <hr />
-                    <li><Link to={"/add"} className='bg-blue-500 hover:bg-blue-700'>Add</Link></li>
-                    <li><Link to={"/update"} className='bg-blue-500 hover:bg-blue-700'>Update</Link></li>
-                    <li><Link to={"/delete"} className='bg-blue-500 hover:bg-blue-700'>Delete</Link></li>
+                    <li><Link to={"/add"} className='hover:bg-slate-400 transition-all ease-in-out'>Add</Link></li>
+                    <li><Link to={"/update"} className='hover:bg-slate-400 transition-all ease-in-out'>Update</Link></li>
+                    <li><Link to={"/delete"} className='hover:bg-slate-400 transition-all ease-in-out'>Delete</Link></li>
                   </ul>
                   </div>}
                 <h1 className='font-normal text-2xl text-white'>Products</h1>

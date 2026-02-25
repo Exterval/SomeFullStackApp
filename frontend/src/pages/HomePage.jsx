@@ -19,7 +19,7 @@ const HomePage = () => {
                 if(!resp.status == 200) throw new Error(`${resp.status}`)
                 const {data} = resp.data;
                 console.log(data);
-                setData(d => [d,...data]);
+                setData(d => [...data]);
             }catch(err){
                 console.log(err)
             }
@@ -29,7 +29,7 @@ const HomePage = () => {
   return (
     <div className='min-h-screen bg-slate-400'>
       <NavBar />
-      <div className='container m-auto bg-blue-600 p-5'>
+      <div className='container m-auto p-5'>
           {data.map(elem=><Card data={elem} />) || <p className='text-blue-200'>'Loading...'</p>}
       </div>
     </div>

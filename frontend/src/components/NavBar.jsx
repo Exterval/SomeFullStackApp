@@ -27,7 +27,7 @@ const NavBar = () => {
                     <li><Link to={"/delete"} className='bg-blue-500 hover:bg-blue-700'>Delete</Link></li>
                   </ul>
                   </div>}
-                <h1 className='font-normal text-2xl text-white'>App</h1>
+                <h1 className='font-normal text-2xl text-white'>Products</h1>
             </div>
         </div>
     </header>

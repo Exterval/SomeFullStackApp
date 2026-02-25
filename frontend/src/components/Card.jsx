@@ -14,7 +14,7 @@ const data = props.data || {};
 
 
   return (
-    <div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl mt-5 hover:translate-y-1 ">
+    <div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl mt-5 hover:translate-y-1 transition-all ease-in-out hover:bg-gray-200">
   <div class="md:flex">
     <div class="md:shrink-0">
       <img
@@ -24,7 +24,7 @@ const data = props.data || {};
       />
     </div>
     <div class="p-8">
-      <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">Lorem Ipsum</div>
+      <div class="text-sm font-semibold tracking-wide uppercase">{data.price} €</div>
       <a href="#" class="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
         {properCase(String(data.name))}
       </a>

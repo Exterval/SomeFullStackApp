@@ -14,21 +14,21 @@ const data = props.data || {};
 
 
   return (
-    <div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl mt-5 hover:translate-y-1 transition-all ease-in-out hover:bg-gray-200">
-  <div class="md:flex">
-    <div class="md:shrink-0">
+    <div className="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl mt-5 hover:translate-y-1 transition-all ease-in-out hover:bg-gray-200">
+  <div className="md:flex">
+    <div className="md:shrink-0">
       <img
-        class="h-48 w-full object-cover md:h-full md:w-48"
+        className="h-48 w-full object-cover md:h-full md:w-48"
         src={data.image}
         alt="Lorem ipsum"
       />
     </div>
-    <div class="p-8">
-      <div class="text-sm font-semibold tracking-wide uppercase">{data.price} €</div>
-      <a href="#" class="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
+    <div className="p-8">
+      <div className="text-sm font-semibold tracking-wide uppercase">{data.price} €</div>
+      <a href="#" className="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
         {properCase(String(data.name))}
       </a>
-      <p class="mt-2 text-gray-500">
+      <p className="mt-2 text-gray-500">
         {data.desc}
       </p>
     </div>

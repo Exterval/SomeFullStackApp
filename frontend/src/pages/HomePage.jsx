@@ -29,7 +29,8 @@ const HomePage = () => {
   return (
     <div className='min-h-screen bg-slate-400'>
       <NavBar />
-      <div className='container m-auto p-5'>
+      <div className="text-5xl font-serif p-5 text-center text-cyan-50 mt-5">Products Display</div>
+      <div className='container m-auto p-5 flex flex-row flex-wrap'>
           {data.map(elem=><Card data={elem} />) || <p className='text-blue-200'>'Loading...'</p>}
       </div>
     </div>

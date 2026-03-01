@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
+import toast from 'react-hot-toast';
 import { useEffect } from 'react'
 import Card from '../components/Card'
 import axios from 'axios'
@@ -22,6 +23,7 @@ const HomePage = () => {
                 setData(d => [...data]);
             }catch(err){
                 console.log(err)
+                toast.error('An error occurred.')
             }
         }
         getHome()

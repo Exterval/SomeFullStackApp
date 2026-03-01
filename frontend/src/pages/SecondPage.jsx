@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router'
+import { Link, Navigate, useNavigate } from 'react-router'
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import NavBar from '../components/NavBar'
@@ -14,24 +14,9 @@ const SecondPage = () => {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState('');
 
-  // useEffect(()=>{
-  //       async function postHome(){
-  //           try{
-  //               const resp = await axios.post('/app/add')
-  //               console.log(resp.status)
-                
-  //               if(resp.status !== 200) throw new Error(`${resp.status}`)
+  const navigate = useNavigate();
 
-  //               console.log(resp.data.message)
-  //               setData(resp.data.message);
-  //           }catch(err){
-  //               console.log(err)
-  //           }
-  //       }
-  //       postHome()
-  //   },[])
-  
-  const handleAddProduct = (e) =>{
+  const handleAddProduct = async (e) =>{
     e.preventDefault();
 
     if(!name.trim || !description.trim || !price){
@@ -40,6 +25,17 @@ const SecondPage = () => {
     }
 
     setLoading(true);
+
+    try {
+      const {data} = await axios.post('/app/add', {name, price, description});
+      toast.success('Posted product successfully! Returning to home page...');
+      // add code to put in data.js
+      console.log(data);
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+      toast.error('An error occurred.')
+    }
 
   }
   

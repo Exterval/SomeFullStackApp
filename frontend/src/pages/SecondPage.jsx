@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router'
 import axios from 'axios'
@@ -8,18 +8,19 @@ import NavBar from '../components/NavBar'
 const SecondPage = () => {
 
   // data has to have an attribute of name, price, desc, and id.
-  const [data , setData] = useState('');
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState('');
+  const [desc, setDescription] = useState('');
+  const idNumber = useRef(5);
+
 
   const navigate = useNavigate();
 
   const handleAddProduct = async (e) =>{
     e.preventDefault();
 
-    if(!name.trim || !description.trim || !price){
+    if(!name.trim() || !desc.trim() || !price){
       toast.error('All fields are required.')
       return;
     }
@@ -27,10 +28,17 @@ const SecondPage = () => {
     setLoading(true);
 
     try {
-      const {data} = await axios.post('/app/add', {name, price, description});
+      const {data} = await axios.post('/app/add', {
+        id:idNumber.current, 
+        image:`https://picsum.photos/id/${Math.round(Math.random()*200)}/500/500`,
+        name, 
+        price, 
+        desc}
+      );
       toast.success('Posted product successfully! Returning to home page...');
       // add code to put in data.js
       console.log(data);
+      idNumber.current += 1;
       navigate('/');
     } catch (error) {
       console.error(error);
@@ -64,7 +72,7 @@ const SecondPage = () => {
               <label className='label'>
                 <span className='block mb-2 text-white'>Description</span>
               </label>
-              <textarea name="" rows='3' className='px-3 bg-neutral-100 text-sm rounded-2xl py-2 w-full ' value={description} onChange={(e)=>setDescription(e.target.value)} style={{resize: "none"}} />
+              <textarea name="" rows='3' className='px-3 bg-neutral-100 text-sm rounded-2xl py-2 w-full ' value={desc} onChange={(e)=>setDescription(e.target.value)} style={{resize: "none"}} />
             </div>
             <div className="justify-end">
               <button type="submit" className='bg-slate-700 hover:bg-slate-500 p-2 rounded-2xl transition-all ease-in-out text-white w-full' disabled={loading}>

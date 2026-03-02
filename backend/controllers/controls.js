@@ -13,9 +13,10 @@ const getData = (req, res) =>{
 const postData = (req, res) =>{
     console.log('Page 2')
     console.log('Sending...')
-    const {name, price, description} = req.body;
-    if(!name || !price || !description) return res.status(400).send({message: 'An error occurred.'})
-    res.status(201).send({message: 'Success', data: {name, price, description}})
+    const {id, name, image, price, desc} = req.body;
+    if(!name || !price || !desc) return res.status(400).send({message: 'An error occurred.'})
+    res.status(201).send({message: 'Success', data: {id, name, image, price, desc}})
+    products.push({id, name, image, price, desc});
 }
 
 module.exports = {getData, postData};

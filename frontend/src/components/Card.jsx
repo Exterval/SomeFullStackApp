@@ -11,6 +11,7 @@ const data = props.data || {};
             }
             ).join(' ');
     }
+    // FIX STYLE
 
   return (
     <div className="mx-auto max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl mt-5 hover:translate-y-1 transition-all ease-in-out hover:bg-gray-200 backdrop-blur-2xl border-1 border-slate-300" style={{background: 'rgba(255, 255, 255, 0.15);'}}>

@@ -23,7 +23,7 @@ const data = props.data || {};
         alt="Lorem ipsum"
       />
     </div>
-    <div className="p-8">
+    <div className="p-8 max-w-full">
       <div className="text-sm font-semibold tracking-wide uppercase">{data.price} €</div>
       <a href="#" className="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
         {properCase(String(data.name))}

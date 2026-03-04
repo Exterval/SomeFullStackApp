@@ -55,7 +55,6 @@ const SecondPage = () => {
   return (
     <div className='min-h-screen bg-slate-400'>
       <NavBar />
-      
       <div className="container m-auto my-5">
         <Link to={'/'} className='bg-slate-200 mr-5 hover:text-slate-100 transition-all ease-in-out'><ArrowLeft /></Link>
         <h2 className='text-3xl my-5 text-center'>Post a Product</h2>

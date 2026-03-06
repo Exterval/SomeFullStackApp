@@ -1,5 +1,7 @@
 import { SquarePen, Trash } from 'lucide-react';
 import React from 'react'
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Card = (props) => {
 
@@ -19,9 +21,15 @@ const data = props.data || {};
     // should have an update and delete button.
 
     
-    const handleDelete = (e, id) => { // delete function
+    const handleDelete = async (e, id) => { // delete function
         e.preventDefault();
-
+        if(!window.confirm('Are you sure you want to delete this product?')) return;
+        try {
+          await axios.delete(`/app/${id}`)
+          toast.success('Product deleted!')
+        } catch (error) {
+          console.error(error);
+        }
     }
 
     const handleUpdate = (e, id) =>{
@@ -49,7 +57,7 @@ const data = props.data || {};
       </p>
       <div className="flex gap-3 justify-end mt-3">
         <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-green-300 hover:bg-green-500 hover:text-white transition-all ease-in-out text-center'><SquarePen />Edit</button>
-        <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-red-300 hover:bg-red-500 hover:text-white transition-all ease-in-out text-center'><Trash />Delete</button>
+        <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-red-300 hover:bg-red-500 hover:text-white transition-all ease-in-out text-center' onClick={(e)=>handleDelete(e, data.id)}><Trash />Delete</button>
       </div>
     </div>
 

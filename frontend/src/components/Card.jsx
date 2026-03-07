@@ -2,10 +2,12 @@ import { SquarePen, Trash } from 'lucide-react';
 import React from 'react'
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 
 const Card = (props) => {
 
 const data = props.data || {};
+const navigate = useNavigate();
 
     function properCase(text){ /** CREDITS TO FCC */
         return text.toLowerCase().split(' ').map(
@@ -24,8 +26,10 @@ const data = props.data || {};
     const handleDelete = async (e, id) => { // delete function
         e.preventDefault();
         if(!window.confirm('Are you sure you want to delete this product?')) return;
+        console.log(id)
         try {
           await axios.delete(`/app/${id}`)
+          window.location.reload(); // force reload to refresh data, refactor
           toast.success('Product deleted!')
         } catch (error) {
           console.error(error);

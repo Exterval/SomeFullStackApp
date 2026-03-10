@@ -38,7 +38,7 @@ const navigate = useNavigate();
 
     const handleUpdate = (e, id) =>{
         e.preventDefault();
-
+        
     }
 
   return (

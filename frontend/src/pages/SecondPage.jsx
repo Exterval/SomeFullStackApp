@@ -17,6 +17,12 @@ const SecondPage = () => {
 
   const navigate = useNavigate();
 
+  const handleUpdateProduct = (id, e) =>{
+    e.preventDefault();
+
+    // update here
+  }
+
   const handleAddProduct = async (e) =>{
     e.preventDefault();
 

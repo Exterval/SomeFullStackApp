@@ -10,6 +10,15 @@ const getData = (req, res) =>{
 }
 
 const getDataById = (req, res) =>{
+    try {
+        const id = Number(req.params.id);
+        const prodIndex = products.findIndex(product => product.id === id)
+        if(prodIndex === -1) return res.status(500).send({message: 'Product does not exist.'});
+        const product = products.find(product => product.id === id);
+        return res.status(200).send({message: "success", data: product});
+    } catch (error) {
+        console.log(error)
+    }
 
 }
 
@@ -36,7 +45,7 @@ const deleteData = (req, res) =>{
 const updateData = (req, res) =>{
     try {
         const {id, name, image, price, desc} = req.body;
-        const prod = products.find(product => product.id === id)
+        let prod = products.find(product => product.id === id)
          if(!prod) return res.status(500).send({message: 'Product does not exist.'})
 
         // put new values of product in a variable, REFACTOR TEMPORARY SOLTUION
@@ -53,8 +62,8 @@ const updateData = (req, res) =>{
         })
         return res.status(200).send({message: 'Success', data: newProducts})
     } catch (error) {
-        
+        console.log(error);
     }
 }
 
-module.exports = {getData, postData, deleteData, updateData};
+module.exports = {getData, getDataById, postData, deleteData, updateData};

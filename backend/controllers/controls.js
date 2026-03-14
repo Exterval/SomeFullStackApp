@@ -49,7 +49,13 @@ const updateData = (req, res) =>{
          if(!prod) return res.status(500).send({message: 'Product does not exist.'})
 
         // put new values of product in a variable, REFACTOR TEMPORARY SOLTUION
-        const newValueProd = {id: id, name: name, image: image, price: price, desc:desc};
+        const newValueProd = {
+            id: id, 
+            name: name, 
+            image: !image ? prod.image : image, 
+            price: !price ? prod.price : price, 
+            desc: !desc ? prod.desc : desc
+        };
         // overwrite object values
         prod = {...prod, ...newValueProd}
 

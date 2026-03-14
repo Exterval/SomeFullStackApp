@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
-import { Link, Navigate, useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import NavBar from '../components/NavBar'
@@ -16,12 +16,6 @@ const SecondPage = () => {
 
 
   const navigate = useNavigate();
-
-  const handleUpdateProduct = (id, e) =>{
-    e.preventDefault();
-
-    // update here
-  }
 
   const handleAddProduct = async (e) =>{
     e.preventDefault();

@@ -61,7 +61,7 @@ const navigate = useNavigate();
         {data.desc}
       </p>
       <div className="flex gap-3 justify-end mt-3">
-        <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-green-300 hover:bg-green-500 hover:text-white transition-all ease-in-out text-center' onClick={(e) => handleUpdate(e, data.id)}><SquarePen />Edit</button>
+        <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-green-300 hover:bg-green-500 hover:text-white transition-all ease-in-out text-center' onClick={(e) => navigate(`/${data.id}`)}><SquarePen />Edit</button>
         <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-red-300 hover:bg-red-500 hover:text-white transition-all ease-in-out text-center' onClick={(e)=>handleDelete(e, data.id)}><Trash />Delete</button>
       </div>
     </div>

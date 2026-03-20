@@ -22,8 +22,11 @@ const ThirdPage = () => {
      async function getProductById(id){ 
        try {
          const resp = await axios.get(`/app/${id}`)
-       console.log(resp.status);
+        console.log(resp.status);
          const {data} = resp.data;
+         setName(data.name);
+         setPrice(data.price);
+         setDescription(data.desc);
        } catch (error) {
          console.log(error)
          toast.error('An error occurred.');

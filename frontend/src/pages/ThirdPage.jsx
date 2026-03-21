@@ -4,14 +4,14 @@ import { Link, useNavigate, useParams } from 'react-router'
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import NavBar from '../components/NavBar'
-
 const ThirdPage = () => {
 // data has to have an attribute of name, price, desc, and id.
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
+  const [id, setId] = useState(0);
   const [desc, setDescription] = useState('');
-  const [data, setData] = useState({})
+  const [product, setProduct] = useState({})
 
 
   const navigate = useNavigate();
@@ -24,9 +24,12 @@ const ThirdPage = () => {
          const resp = await axios.get(`/app/${id}`)
         console.log(resp.status);
          const {data} = resp.data;
+
+         setProduct(data);
          setName(data.name);
          setPrice(data.price);
          setDescription(data.desc);
+         setId(data.id);
        } catch (error) {
          console.log(error)
          toast.error('An error occurred.');
@@ -35,8 +38,26 @@ const ThirdPage = () => {
    getProductById(params.prodId);
    }, [])
 
-  const handleUpdateProduct = (e) => {
+  const handleUpdateProduct = async (e) => {
+    // FIX
+    e.preventDefault();
+    setLoading(true);
     // update product after changes
+    try {
+      const updatedData = {...product,
+        name: name,
+        price: price,
+        desc: desc
+      };
+      console.log(updatedData)
+      await axios.put(`/app/${id}`, updatedData);
+      navigate('/');
+    } catch (error) {
+      console.log(error)
+      toast.error('Failed to update product.');
+    } finally {
+      setLoading(false);
+    }
   }
   
   return (

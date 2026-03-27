@@ -66,6 +66,9 @@ const updateData = (req, res) =>{
             }
             return product;
         })
+        // replace existing products array
+        products.splice(0, products.length);
+        products.push(...newProducts);
         return res.status(200).send({message: 'Success', data: newProducts})
     } catch (error) {
         console.log(error);

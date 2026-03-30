@@ -38,7 +38,7 @@ const SecondPage = () => {
         id:idNumber.current, 
         image:`https://picsum.photos/id/${Math.round(Math.random()*200)}/500/500`,
         name, 
-        price, 
+        price: Number(price), 
         desc}
       );
       toast.success('Posted product successfully! Returning to home page...');

@@ -9,6 +9,6 @@ export default defineConfig({
   '/app': {
     target: 'http://localhost:5000'
   }}},
-  plugins: [react(), tailwindcss()]
-  
+  plugins: [react(), tailwindcss()],
+  base: '/SomeFullStackApp'
 })

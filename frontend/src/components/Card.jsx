@@ -19,10 +19,6 @@ const navigate = useNavigate();
 
     // FIX STYLE
 
-    // transfer all CRUD functions here
-    // should have an update and delete button.
-
-    
     const handleDelete = async (e, id) => { // delete function
         e.preventDefault();
         if(!window.confirm('Are you sure you want to delete this product?')) return;

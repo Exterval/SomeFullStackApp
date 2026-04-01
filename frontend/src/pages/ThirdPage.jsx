@@ -21,7 +21,7 @@ const ThirdPage = () => {
   useEffect(()=>{
      async function getProductById(id){ 
        try {
-         const resp = await axios.get(`/SomeFullStackApp/app/${id}`)
+         const resp = await axios.get(`${import.meta.env.VITE_API_URL}/SomeFullStackApp/app/${id}`)
         console.log(resp.status);
          const {data} = resp.data;
 
@@ -50,7 +50,7 @@ const ThirdPage = () => {
         desc: desc
       };
       console.log(updatedData)
-      await axios.put(`/SomeFullStackApp/app/${id}`, updatedData);
+      await axios.put(`${import.meta.env.VITE_API_URL}/SomeFullStackApp/app/${id}`, updatedData);
       navigate('/SomeFullStackApp/');
     } catch (error) {
       console.log(error)

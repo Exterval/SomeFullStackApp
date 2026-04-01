@@ -13,7 +13,7 @@ const HomePage = () => {
     useEffect(()=>{
         async function getHome(){
             try{
-                const resp = await axios.get('/SomeFullStackApp/app', {
+                const resp = await axios.get(`${import.meta.env.VITE_API_URL}/SomeFullStackApp/app`, {
                   timeout: 5000
                 })
                 console.log(resp.status)

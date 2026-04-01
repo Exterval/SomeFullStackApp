@@ -34,7 +34,7 @@ const SecondPage = () => {
     setLoading(true);
 
     try {
-      const {data} = await axios.post('/SomeFullStackApp/app/add', {
+      const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/SomeFullStackApp/app/add`, {
         id:idNumber.current, 
         image:`https://picsum.photos/id/${Math.round(Math.random()*200)}/500/500`,
         name, 

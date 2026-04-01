@@ -3,7 +3,6 @@ let {products} = require('../data');
 const getData = (req, res) =>{
     try{
         console.log('Sending...')
-        console.log(products)
         return res.status(200).send({message: 'Success', data: products})
     }catch(err){
         console.error(err)

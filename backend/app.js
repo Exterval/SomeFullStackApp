@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '../frontend')))
 app.use(express.json())
 
 
-app.use('/app', home)
+app.use('/SomeFullStackApp/app', home)
 
 app.listen(port, (req, res)=>{
     console.log(`Listening on port ${port}`);  

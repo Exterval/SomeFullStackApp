@@ -21,7 +21,7 @@ const ThirdPage = () => {
   useEffect(()=>{
      async function getProductById(id){ 
        try {
-         const resp = await axios.get(`/app/${id}`)
+         const resp = await axios.get(`/SomeFullStackApp/app/${id}`)
         console.log(resp.status);
          const {data} = resp.data;
 
@@ -50,8 +50,8 @@ const ThirdPage = () => {
         desc: desc
       };
       console.log(updatedData)
-      await axios.put(`/app/${id}`, updatedData);
-      navigate('/');
+      await axios.put(`/SomeFullStackApp/app/${id}`, updatedData);
+      navigate('/SomeFullStackApp/');
     } catch (error) {
       console.log(error)
       toast.error('Failed to update product.');
@@ -64,7 +64,7 @@ const ThirdPage = () => {
     <div className='min-h-screen bg-slate-400'>
       <NavBar />
       <div className="container m-auto my-5">
-        <Link to={'/'} className='bg-slate-200 mr-5 hover:text-slate-100 transition-all ease-in-out'><ArrowLeft /></Link>
+        <Link to={'/SomeFullStackApp/'} className='bg-slate-200 mr-5 hover:text-slate-100 transition-all ease-in-out'><ArrowLeft /></Link>
         <h2 className='text-3xl my-5 text-center'>Update a Product</h2>
         <div className="">
           <form onSubmit={handleUpdateProduct} className='border border-slate-300 p-5 max-w-md mx-auto  backdrop-blur-2xl rounded-xl transition-all ease-in-out'>

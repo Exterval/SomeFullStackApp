@@ -9,9 +9,9 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<HomePage />}></Route>
-        <Route path='/add' element={<SecondPage />}></Route>
-        <Route path='/:prodId' element={<ThirdPage />}></Route>
+        <Route path='/SomeFullStackApp/' element={<HomePage />}></Route>
+        <Route path='/SomeFullStackApp/add' element={<SecondPage />}></Route>
+        <Route path='/SomeFullStackApp/:prodId' element={<ThirdPage />}></Route>
       </Routes>
     </div>
   )

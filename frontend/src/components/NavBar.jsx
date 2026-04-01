@@ -12,7 +12,7 @@ const NavBar = () => {
         <div className='mx-auto max-w-6xl p-5'>
             <div className="flex items-center justify-between">
                 {/** MAKE DROPDOWN & ADD CRUD FUNCTION */}
-                <Link to={'/add'} className='hover:bg-slate-400 transition duration-300 ease-in-out rounded-sm' ><Plus /></Link>
+                <Link to={'/SomeFullStackApp/add'} className='hover:bg-slate-400 transition duration-300 ease-in-out rounded-sm' ><Plus /></Link>
                 <h1 className='font-normal text-2xl text-white'>Products</h1>
             </div>
         </div>

@@ -34,7 +34,7 @@ const SecondPage = () => {
     setLoading(true);
 
     try {
-      const {data} = await axios.post('/app/add', {
+      const {data} = await axios.post('/SomeFullStackApp/app/add', {
         id:idNumber.current, 
         image:`https://picsum.photos/id/${Math.round(Math.random()*200)}/500/500`,
         name, 
@@ -44,7 +44,7 @@ const SecondPage = () => {
       toast.success('Posted product successfully! Returning to home page...');
       console.log(data);
       idNumber.current += 1;
-      navigate('/');
+      navigate('/SomeFullStackApp/');
     } catch (error) {
       console.error(error);
       toast.error('An error occurred.')
@@ -56,7 +56,7 @@ const SecondPage = () => {
     <div className='min-h-screen bg-slate-400'>
       <NavBar />
       <div className="container m-auto my-5">
-        <Link to={'/'} className='bg-slate-200 mr-5 hover:text-slate-100 transition-all ease-in-out'><ArrowLeft /></Link>
+        <Link to={'/SomeFullStackApp/'} className='bg-slate-200 mr-5 hover:text-slate-100 transition-all ease-in-out'><ArrowLeft /></Link>
         <h2 className='text-3xl my-5 text-center'>Post a Product</h2>
         <div className="">
           <form onSubmit={handleAddProduct} className='border border-slate-300 p-5 max-w-md mx-auto  backdrop-blur-2xl rounded-xl transition-all ease-in-out'>

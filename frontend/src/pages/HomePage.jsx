@@ -13,14 +13,14 @@ const HomePage = () => {
     useEffect(()=>{
         async function getHome(){
             try{
-                const resp = await axios.get('/app', {
+                const resp = await axios.get('/SomeFullStackApp/app', {
                   timeout: 5000
                 })
                 console.log(resp.status)
-                if(!resp.status == 200) throw new Error(`${resp.status}`)
-                const {data} = resp.data;
+                if(resp.status !== 200) throw new Error(`${resp.status}`)
+                const { data } = resp.data;
                 console.log(data);
-                setData(d => [...data]);
+                setData(data);
             }catch(err){
                 console.log(err)
                 toast.error('An error occurred.')
@@ -33,7 +33,10 @@ const HomePage = () => {
       <NavBar />
       <div className="text-5xl font-serif p-5 text-center text-cyan-50 mt-5">Products Display</div>
       <div className='container m-auto p-5 flex flex-row flex-wrap'>
-          {data.map(elem=><Card data={elem} />) || <p className='text-blue-200'>'Loading...'</p>}
+          {data.length
+            ? data.map(elem => <Card key={elem.id || elem._id} data={elem} />)
+            : <p className='text-blue-200'>Loading...</p>
+          }
       </div>
     </div>
   )

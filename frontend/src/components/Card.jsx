@@ -24,18 +24,12 @@ const navigate = useNavigate();
         if(!window.confirm('Are you sure you want to delete this product?')) return;
         console.log(id)
         try {
-          await axios.delete(`/app/${id}`)
+          await axios.delete(`/SomeFullStackApp/app/${id}`)
           window.location.reload(); // force reload to refresh data, refactor
           toast.success('Product deleted!')
         } catch (error) {
           console.error(error);
         }
-    }
-
-    const handleUpdate = (e, id) =>{
-        e.preventDefault();
-        console.log(id);
-        
     }
 
   return (
@@ -57,7 +51,7 @@ const navigate = useNavigate();
         {data.desc}
       </p>
       <div className="flex gap-3 justify-end mt-3">
-        <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-green-300 hover:bg-green-500 hover:text-white transition-all ease-in-out text-center' onClick={(e) => navigate(`/${data.id}`)}><SquarePen />Edit</button>
+        <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-green-300 hover:bg-green-500 hover:text-white transition-all ease-in-out text-center' onClick={(e) => navigate(`/SomeFullStackApp/${data.id}`)}><SquarePen />Edit</button>
         <button className='flex gap-1 justify-center w-fit p-2 text-sm rounded-2xl bg-red-300 hover:bg-red-500 hover:text-white transition-all ease-in-out text-center' onClick={(e)=>handleDelete(e, data.id)}><Trash />Delete</button>
       </div>
     </div>

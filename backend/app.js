@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 // routes
 const home = require('./routes/appRouter')
 app.use(cors({
-    origin: 'https://exterval.github.io/SomeFullStackApp/'
+    origin: 'https://exterval.github.io'
 }))
 app.use(express.static(path.join(__dirname, '../frontend')))
 app.use(express.json())

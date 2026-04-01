@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
   proxy:{
   '/SomeFullStackApp/app': {
-    target: import.meta.env.VITE_API_URL || 'http://localhost:5000'
+    target: 'http://localhost:5000'
   }}},
   plugins: [react(), tailwindcss()],
   base: '/SomeFullStackApp/'
